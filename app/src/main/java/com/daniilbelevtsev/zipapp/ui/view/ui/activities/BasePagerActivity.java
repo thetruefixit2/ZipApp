@@ -11,6 +11,7 @@ import com.daniilbelevtsev.zipapp.R;
 import com.daniilbelevtsev.zipapp.ui.adapters.PagerFragmentAdapter;
 import com.daniilbelevtsev.zipapp.ui.listeners.OnPagerActivityCallbackListener;
 import com.daniilbelevtsev.zipapp.ui.view.interfaces.IBaseView;
+import com.daniilbelevtsev.zipapp.ui.view.ui.custom.ErrorView;
 import com.daniilbelevtsev.zipapp.ui.view.ui.custom.LoadingView;
 
 import butterknife.BindView;
@@ -28,8 +29,12 @@ public class BasePagerActivity extends AppCompatActivity implements IBaseView, O
 
     @BindView(R.id.fragment_pager)
     ViewPager pager;
+
     @BindView(R.id.pager_header)
     PagerTabStrip pagerHeader;
+
+    @BindView(R.id.errorView)
+    ErrorView errorView;
 
     private PagerFragmentAdapter adapter;
 
@@ -60,19 +65,23 @@ public class BasePagerActivity extends AppCompatActivity implements IBaseView, O
     public void showLoading() {
         loadingView.setErrorText(R.string.loading_in_progress);
         pager.setVisibility(View.GONE);
+        errorView.setVisibility(View.GONE);
         loadingView.setVisibility(View.VISIBLE);
-
     }
 
     @Override
     public void hideLoading() {
         pager.setVisibility(View.VISIBLE);
         loadingView.setVisibility(View.GONE);
+        errorView.setVisibility(View.GONE);
     }
 
     @Override
     public void showError(String errorMessage) {
-
+        errorView.setErrorText(errorMessage);
+        errorView.setVisibility(View.VISIBLE);
+        pager.setVisibility(View.GONE);
+        loadingView.setVisibility(View.GONE);
     }
 
     public ViewPager getPager() {

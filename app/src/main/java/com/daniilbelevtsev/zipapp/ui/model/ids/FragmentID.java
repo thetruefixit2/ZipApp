@@ -1,4 +1,4 @@
-package com.daniilbelevtsev.zipapp.ui.utils;
+package com.daniilbelevtsev.zipapp.ui.model.ids;
 
 /**
  * Created by Daniil Belevtsev on 14.12.2016 1:02.

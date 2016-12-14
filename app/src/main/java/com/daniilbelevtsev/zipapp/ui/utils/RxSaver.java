@@ -18,6 +18,7 @@ import rx.functions.Func1;
 /**
  * Created by Daniil Belevtsev on 14.12.2016 15:50.
  * Project: ZipApp; Skype: pandamoni1
+ * This class save downloaded file to disk
  */
 
 public class RxSaver implements Func1<Response<ResponseBody>, Observable<File>> {

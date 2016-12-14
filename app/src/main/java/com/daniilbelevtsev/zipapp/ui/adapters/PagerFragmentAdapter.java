@@ -8,7 +8,7 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 
 import com.daniilbelevtsev.zipapp.R;
-import com.daniilbelevtsev.zipapp.ui.utils.FragmentID;
+import com.daniilbelevtsev.zipapp.ui.model.ids.FragmentID;
 import com.daniilbelevtsev.zipapp.ui.view.ui.fragments.ListFragment;
 import com.daniilbelevtsev.zipapp.ui.view.ui.fragments.MapFragment;
 

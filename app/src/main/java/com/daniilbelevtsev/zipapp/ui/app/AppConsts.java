@@ -14,5 +14,5 @@ public class AppConsts {
     public static final String GSON_SERIALIZER = "gson_serialized";
     public static final String GSON_DESERIALIZER = "gson_deserialized";
 
-    public static final String EXTRA_FILENAME = "filename";
+    public static final String EXTRA_CITY_LIST = "cityList";
 }

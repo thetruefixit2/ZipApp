@@ -22,9 +22,10 @@ import butterknife.ButterKnife;
 
 public class ErrorView extends RelativeLayout {
 
+
     @BindView(R.id.errorImage)
     ImageView errorImage;
-    @BindView(R.id.loadingText)
+    @BindView(R.id.errorText)
     TextView errorText;
 
     public ErrorView(Context context) {
@@ -55,13 +56,13 @@ public class ErrorView extends RelativeLayout {
 
     public void setErrorText(String message) {
         if (errorText != null && message != null) {
-            errorText.setText(message);
+            errorText.setText(String.format("%s%s", getContext().getString(R.string.error_occurred), message));
         }
     }
 
     public void setErrorText(@StringRes int message) {
         if (errorText != null && message != -1) {
-            errorText.setText(message);
+            errorText.setText(String.format("%s%s", getContext().getString(R.string.error_occurred), getContext().getString(message)));
         }
     }
 }

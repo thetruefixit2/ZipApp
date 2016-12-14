@@ -40,12 +40,12 @@ public class CityRepository {
 
     public void put(ArrayList<City> cities) {
         String json = gsonSerializer.toJson(cities);
-        preferences.edit().putString(AppConsts.EXTRA_FILENAME, json).apply();
+        preferences.edit().putString(AppConsts.EXTRA_CITY_LIST, json).apply();
     }
 
     public ArrayList<City> get() {
         if (isExists()) {
-            String json = preferences.getString(AppConsts.EXTRA_FILENAME, "");
+            String json = preferences.getString(AppConsts.EXTRA_CITY_LIST, "");
             if (!json.equals("")) {
                 Type listType = new TypeToken<ArrayList<City>>() {
                 }.getType();
@@ -56,7 +56,7 @@ public class CityRepository {
     }
 
     public boolean isExists() {
-        return preferences.contains(AppConsts.EXTRA_FILENAME);
+        return preferences.contains(AppConsts.EXTRA_CITY_LIST);
     }
 
 }

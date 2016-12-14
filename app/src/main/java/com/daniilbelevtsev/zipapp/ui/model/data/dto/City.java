@@ -11,7 +11,7 @@ import com.google.maps.android.clustering.ClusterItem;
 
 public class City implements ClusterItem {
 
-    @SerializedName("id")
+    @SerializedName("_id")
     private String id;
 
     private String name;

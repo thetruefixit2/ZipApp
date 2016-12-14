@@ -1,5 +1,6 @@
 package com.daniilbelevtsev.zipapp.ui.presenter.presenters;
 
+import com.daniilbelevtsev.zipapp.R;
 import com.daniilbelevtsev.zipapp.ui.model.IDataManager;
 import com.daniilbelevtsev.zipapp.ui.model.data.dto.City;
 import com.daniilbelevtsev.zipapp.ui.model.repo.CityRepository;
@@ -47,6 +48,7 @@ public abstract class BaseCityPresenter<T extends IBaseView> implements IBaseCit
         if (repository.isExists()) {
             onCitiesUpdated(repository.get());
         } else {
+            getView().showLoading(R.string.loading_in_progress);
             Subscription sub = dataManager.downloadFile()
                     .flatMap(fileSaver)
                     .flatMap(gzipParser)
@@ -63,6 +65,7 @@ public abstract class BaseCityPresenter<T extends IBaseView> implements IBaseCit
                         @Override
                         public void onNext(ArrayList<City> cities) {
                             onCitiesUpdated(cities);
+                            getView().hideLoading();
                         }
                     });
             addSubscription(sub);

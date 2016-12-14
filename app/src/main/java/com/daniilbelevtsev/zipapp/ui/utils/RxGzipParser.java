@@ -23,6 +23,7 @@ import rx.functions.Func1;
 /**
  * Created by Daniil Belevtsev on 14.12.2016 16:01.
  * Project: ZipApp; Skype: pandamoni1
+ * This class priority is decompressing gzip city file to normal array
  */
 
 public class RxGzipParser implements Func1<File, Observable<ArrayList<City>>> {
