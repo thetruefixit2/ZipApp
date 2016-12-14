@@ -3,7 +3,6 @@ package com.daniilbelevtsev.zipapp.ui.model;
 import com.daniilbelevtsev.zipapp.ui.app.AppConsts;
 import com.daniilbelevtsev.zipapp.ui.app.TheApp;
 import com.daniilbelevtsev.zipapp.ui.model.api.OWApi;
-import com.daniilbelevtsev.zipapp.ui.model.zipper.IGZipClient;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -26,9 +25,6 @@ public class DataManager implements IDataManager {
     protected OWApi openWeatherApi;
 
     @Inject
-    protected IGZipClient gzipClient;
-
-    @Inject
     @Named(AppConsts.UI_THREAD)
     Scheduler uiThread;
 
@@ -47,11 +43,6 @@ public class DataManager implements IDataManager {
     public Observable<Response<ResponseBody>> downloadFile() {
         return openWeatherApi.getUSCityFile()
                 .compose(applySchedulers());
-    }
-
-    @Override
-    public IGZipClient getGzipClient() {
-        return gzipClient;
     }
 
     @SuppressWarnings("unchecked")

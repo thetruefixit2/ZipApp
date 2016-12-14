@@ -1,6 +1,6 @@
 package com.daniilbelevtsev.zipapp.ui.view.interfaces;
 
-import com.daniilbelevtsev.zipapp.ui.model.dto.City;
+import com.daniilbelevtsev.zipapp.ui.model.data.dto.City;
 
 import java.util.ArrayList;
 

@@ -2,21 +2,19 @@ package com.daniilbelevtsev.zipapp.ui.view.ui.activities;
 
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
 import com.daniilbelevtsev.zipapp.R;
 import com.daniilbelevtsev.zipapp.ui.adapters.PagerFragmentAdapter;
 import com.daniilbelevtsev.zipapp.ui.listeners.OnPagerActivityCallbackListener;
-import com.daniilbelevtsev.zipapp.ui.utils.FragmentID;
 import com.daniilbelevtsev.zipapp.ui.view.interfaces.IBaseView;
 import com.daniilbelevtsev.zipapp.ui.view.ui.custom.LoadingView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Daniil Belevtsev on 13.12.2016 20:39.
@@ -30,12 +28,8 @@ public class BasePagerActivity extends AppCompatActivity implements IBaseView, O
 
     @BindView(R.id.fragment_pager)
     ViewPager pager;
-
-    @BindView(R.id.btnSwitchList)
-    Button btnSwitchList;
-
-    @BindView(R.id.btnSwitchMap)
-    Button btnSwitchMap;
+    @BindView(R.id.pager_header)
+    PagerTabStrip pagerHeader;
 
     private PagerFragmentAdapter adapter;
 
@@ -48,21 +42,11 @@ public class BasePagerActivity extends AppCompatActivity implements IBaseView, O
     }
 
     public void initUI() {
-        showLoading();
         if (adapter == null) {
             adapter = new PagerFragmentAdapter(getSupportFragmentManager(), this);
         }
         pager.setAdapter(adapter);
-    }
-
-    @OnClick(R.id.btnSwitchList)
-    void onListSelected() {
-        getPager().setCurrentItem(FragmentID.FRAGMENT_LIST);
-    }
-
-    @OnClick(R.id.btnSwitchMap)
-    void onMapSelected() {
-        getPager().setCurrentItem(FragmentID.FRAGMENT_MAP);
+        pager.setCurrentItem(0);
     }
 
     @Override

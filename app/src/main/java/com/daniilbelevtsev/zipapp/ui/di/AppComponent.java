@@ -5,8 +5,8 @@ import com.daniilbelevtsev.zipapp.ui.di.modules.ModelModule;
 import com.daniilbelevtsev.zipapp.ui.di.modules.PresenterModule;
 import com.daniilbelevtsev.zipapp.ui.di.modules.ViewModule;
 import com.daniilbelevtsev.zipapp.ui.model.DataManager;
-import com.daniilbelevtsev.zipapp.ui.presenter.presenters.ListPresenter;
-import com.daniilbelevtsev.zipapp.ui.presenter.presenters.MapPresenter;
+import com.daniilbelevtsev.zipapp.ui.presenter.presenters.ListCityPresenter;
+import com.daniilbelevtsev.zipapp.ui.presenter.presenters.MapCityPresenter;
 import com.daniilbelevtsev.zipapp.ui.view.ui.fragments.ListFragment;
 import com.daniilbelevtsev.zipapp.ui.view.ui.fragments.MapFragment;
 
@@ -39,9 +39,9 @@ public interface AppComponent {
     ///////////////////////////////////////////////////////////////////////////
 
 
-    void inject(ListPresenter presenter);
+    void inject(ListCityPresenter presenter);
 
-    void inject(MapPresenter presenter);
+    void inject(MapCityPresenter presenter);
 
 
 }

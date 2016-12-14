@@ -6,7 +6,7 @@ import android.os.Build;
 import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,48 +20,48 @@ import butterknife.ButterKnife;
  * Project: ZipApp; Skype: pandamoni1
  */
 
-public class LoadingView extends RelativeLayout {
+public class ErrorView extends RelativeLayout {
 
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
+    @BindView(R.id.errorImage)
+    ImageView errorImage;
     @BindView(R.id.loadingText)
-    TextView loadingText;
+    TextView errorText;
 
-    public LoadingView(Context context) {
+    public ErrorView(Context context) {
         super(context);
         init();
     }
 
-    public LoadingView(Context context, AttributeSet attrs) {
+    public ErrorView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public LoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ErrorView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public LoadingView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public ErrorView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
 
     private void init() {
-        View rootView = inflate(getContext(), R.layout.view_loading, this);
+        View rootView = inflate(getContext(), R.layout.view_error, this);
         ButterKnife.bind(this, rootView);
     }
 
-    public void setLoadingText(String message) {
-        if (loadingText != null && message != null) {
-            loadingText.setText(message);
+    public void setErrorText(String message) {
+        if (errorText != null && message != null) {
+            errorText.setText(message);
         }
     }
 
     public void setErrorText(@StringRes int message) {
-        if (loadingText != null && message != -1) {
-            loadingText.setText(message);
+        if (errorText != null && message != -1) {
+            errorText.setText(message);
         }
     }
 }

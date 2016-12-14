@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.daniilbelevtsev.zipapp.R;
-import com.daniilbelevtsev.zipapp.ui.model.dto.City;
+import com.daniilbelevtsev.zipapp.ui.model.data.dto.City;
 
 import java.util.ArrayList;
 

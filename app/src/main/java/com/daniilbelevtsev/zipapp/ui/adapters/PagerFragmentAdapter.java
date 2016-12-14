@@ -3,10 +3,11 @@ package com.daniilbelevtsev.zipapp.ui.adapters;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
+import com.daniilbelevtsev.zipapp.R;
 import com.daniilbelevtsev.zipapp.ui.utils.FragmentID;
 import com.daniilbelevtsev.zipapp.ui.view.ui.fragments.ListFragment;
 import com.daniilbelevtsev.zipapp.ui.view.ui.fragments.MapFragment;
@@ -16,7 +17,7 @@ import com.daniilbelevtsev.zipapp.ui.view.ui.fragments.MapFragment;
  * Project: ZipApp; Skype: pandamoni1
  */
 
-public class PagerFragmentAdapter extends FragmentStatePagerAdapter {
+public class PagerFragmentAdapter extends FragmentPagerAdapter {
     private static final int FRAGMENT_COUNT = 2;
 
     private final SparseArray<Fragment> instantiatedFragments = new SparseArray<>();
@@ -70,5 +71,22 @@ public class PagerFragmentAdapter extends FragmentStatePagerAdapter {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        String title = "";
+        switch (position) {
+            case FragmentID.FRAGMENT_LIST:
+                title = context.getString(R.string.list);
+                break;
+            case FragmentID.FRAGMENT_MAP:
+                title = context.getString(R.string.map);
+                break;
+            default:
+                title = context.getString(R.string.list);
+                break;
+        }
+        return title;
     }
 }

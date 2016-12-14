@@ -1,7 +1,7 @@
 package com.daniilbelevtsev.zipapp.ui.di.modules;
 
-import com.daniilbelevtsev.zipapp.ui.presenter.presenters.ListPresenter;
-import com.daniilbelevtsev.zipapp.ui.presenter.presenters.MapPresenter;
+import com.daniilbelevtsev.zipapp.ui.presenter.presenters.ListCityPresenter;
+import com.daniilbelevtsev.zipapp.ui.presenter.presenters.MapCityPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,13 +14,13 @@ import dagger.Provides;
 public class ViewModule {
 
     @Provides
-    ListPresenter provideListPresenter() {
-        return new ListPresenter();
+    ListCityPresenter provideListPresenter() {
+        return new ListCityPresenter();
     }
 
     @Provides
-    MapPresenter provideMapPresenter() {
-        return new MapPresenter();
+    MapCityPresenter provideMapPresenter() {
+        return new MapCityPresenter();
     }
 
 }
